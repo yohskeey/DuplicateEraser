@@ -24,7 +24,7 @@ internal class Program
         }
         var filePath = Path.GetFullPath(args[0]);
         bool isComma = false;
-        string encode = "";
+        string encode = "utf8";
         foreach (var arg in args)
         {
             if (arg.StartsWith("--separator="))
@@ -38,12 +38,25 @@ internal class Program
         }
         IEnumerable<string> words;
 
-        words = ReadFile(filePath, isComma, encode);
+        words = ReadFile(filePath, isComma, GetEncodingByOption(encode));
 
         if (!DuplicateEraser(filePath, words))
         {
             Console.WriteLine("Error.");
             return;
+        }
+    }
+
+    static Encoding GetEncodingByOption(string option)
+    {
+        if (option == "sjis")
+        {
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+            return Encoding.GetEncoding("shift_jis");
+        }
+        else
+        {
+            return Encoding.UTF8;
         }
     }
 
@@ -96,22 +109,16 @@ internal class Program
         return duplicates;
     }
 
-    static IEnumerable<string> ReadFile(string filePath, bool isComma, string encode)
+    static IEnumerable<string> ReadFile(string filePath, bool isComma, Encoding encode)
     {
-        var encoding = Encoding.UTF8;
-        if (encode == "sjis")
-        {
-            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
-            encoding = Encoding.GetEncoding("shift_jis");
-        }
         if (isComma)
         {
-            var text = File.ReadAllText(filePath, encoding);
+            var text = File.ReadAllText(filePath, encode);
             return text.Split(",");
         }
         else
         {
-            return File.ReadAllLines(filePath, encoding);
+            return File.ReadAllLines(filePath, encode);
         }
     }
 }

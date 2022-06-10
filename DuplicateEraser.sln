@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32526.322
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DuplicateEraser", "DuplicateEraser\DuplicateEraser.csproj", "{FC1D047D-5E54-4EBD-9E13-CA44E58C6DD1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FC1D047D-5E54-4EBD-9E13-CA44E58C6DD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC1D047D-5E54-4EBD-9E13-CA44E58C6DD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC1D047D-5E54-4EBD-9E13-CA44E58C6DD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC1D047D-5E54-4EBD-9E13-CA44E58C6DD1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {51FDC1B8-9D7F-45CB-9E49-F3321A55FA66}
+	EndGlobalSection
+EndGlobal
